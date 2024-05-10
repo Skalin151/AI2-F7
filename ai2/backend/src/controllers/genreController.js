@@ -45,7 +45,7 @@ controllers.genre_update = async(req, res) => {
     .catch(error => {
         return error;
     })
-    res.json({ success: true, data: data, message: "Genre updated!"});
+    res.json({ success: true, data: data, message: "Genre updated!"}); //Debug
 }
 
 controllers.genre_delete = async(req, res) => {
@@ -61,7 +61,7 @@ controllers.genre_delete = async(req, res) => {
         return error;
     })
 
-    res.json({success: act, message: "Genre removed!"})
+    res.json({success: act, message: "Genre removed!"}) //Debug
 }
 
 controllers.genre_get = async(req, res) => {

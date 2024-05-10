@@ -37,24 +37,6 @@ controllers.movie_list = async(req, res) => {
     res.json({ success: true, data: data,});
 }
 
-controllers.movie_update = async(req, res) => {
-    const { id } = req.params;
-    const { title, photo, description, genre } = req.body;
-    const data = await Movie.update({
-            title: title,
-            photo: photo,
-            description: description,
-            genre: genre
-        }, {where:  { id: id}})
-    .then(function(data) {
-        return data;
-    })
-    .catch(error => {
-        return error;
-    });
-
-    res.json({success: true, data: data, message: "Movie updated!"});
-}
 
 controllers.movie_delete = async(req, res) => {
     const { id } = req.params;
@@ -69,7 +51,7 @@ controllers.movie_delete = async(req, res) => {
         return error
     })
     
-    res.json({success: act, message: "Movie deleted!"});
+    res.json({success: act, message: "Movie deleted!"}); //Debug
 }
 
 controllers.movie_get = async(req, res) => {
