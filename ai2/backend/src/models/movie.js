@@ -12,9 +12,9 @@ var Movie = SequelizeDB.define('movie', {
         autoIncrement: true,
         allowNull:false
     },
-        title: {
-            type: Sequelize.STRING,
-            unique: true
+    title: {
+        type: Sequelize.STRING,
+        unique: true
         },
         
         photo: Sequelize.STRING,

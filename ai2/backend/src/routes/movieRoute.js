@@ -7,6 +7,6 @@ router.post('/create', movieController.movie_create);
 router.get('/list', movieController.movie_list);
 router.put('/update/:id', movieController.movie_update);
 router.get('/get/:id', movieController.movie_get);
-router.put('/delete/:id', movieController.movie_delete);
+router.post('/delete/:id', movieController.movie_delete);
 
 module.exports = router;
