@@ -21,7 +21,7 @@ export default function CreateGenre(){
                         setDescription(value.target.value)}/>
                 </div>
             </div>
-            <button type="submit" className="btn btn-primary mt-2" onClick={()=>SendSave()}>Add</button>
+            <button type="submit" className="btn btn-primary mt-2" onClick={()=>SendSave()}>Adicionar</button>
         </div>
     );
 

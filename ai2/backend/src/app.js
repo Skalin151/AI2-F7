@@ -18,9 +18,7 @@ app.use(express.json());
 
 app.use('/genre', genreRoute);
 app.use('/movie', movieRoute);
-app.use('/', (req, res) => {
-    app.use('/movie', movieRoute)
-})
+
 app.listen(app.get('port'), () => {
     console.log("Server on port: " + app.get('port'));
 })

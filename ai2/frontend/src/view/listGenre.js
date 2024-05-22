@@ -39,7 +39,7 @@ export default function ListGenre(){
             <thead className = "thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Género</th>
+                    <th scope="col">Genre</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,19 +67,19 @@ export default function ListGenre(){
 
     function onDelete(genre){
         Swal.fire({
-            title: 'Are you sure?',
-            text: 'It won\'t be able to recover it later!',
+            title: 'Tem a certeza?',
+            text: 'Ação é ireeversível!',
             type: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Yes, delete!',
-            cancelButtonText: 'No, keep'
+            confirmButtonText: 'Sim, apagar!',
+            cancelButtonText: 'Não, manter'
         }).then((result) => {
             if (result.value) {
                 sendDelete(genre)
             } else if (result.dismiss === Swal.DismissReason.cancel) {
                 Swal.fire(
-                'Canceled',
-                'Genre was not deleted',
+                'Cancelado',
+                'Género não foi apagado',
                 'error'
                 )
             }
@@ -88,7 +88,7 @@ export default function ListGenre(){
 
     function sendDelete(genre){
         const url = baseUrl + "/genre/delete/" + genre
-        axios.put(url)
+        axios.get(url)
         .then(response =>{
             if (response.data.success){
                 Swal.fire(
@@ -101,7 +101,7 @@ export default function ListGenre(){
             else{
                 Swal.fire(
                     'Cancelado',
-                    'Género assiciado a filme!',
+                    'Género associado a filme!',
                     'error'
                 )
             }
