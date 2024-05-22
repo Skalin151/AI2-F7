@@ -14,7 +14,7 @@ var Movie = SequelizeDB.define('movie', {
     },
     title: {
         type: Sequelize.STRING,
-        unique: true
+        
         },
         
         photo: Sequelize.STRING,
@@ -33,7 +33,7 @@ var Movie = SequelizeDB.define('movie', {
     timestamps: false,
 });
 
-
+/*
 // Criar alguns exemplos de filmes
 const movie1 = new Movie({
     title: 'Kung Fu Panda',
@@ -65,7 +65,7 @@ const movie1 = new Movie({
     }
   });
 
-
+*/
 
 
 Movie.sync();

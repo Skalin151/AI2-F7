@@ -50,7 +50,7 @@ export default function UpdateGenre() {
     <div>
       <div className="form-row justify-content-center">
         <div className="form-group col-md-6">
-          <label htmlFor="inputPassword4">Description:</label>
+          <label htmlFor="inputPassword4">Descrição:</label>
           <input
             type="text"
             className="form-control"
@@ -61,7 +61,7 @@ export default function UpdateGenre() {
         </div>
       </div>
       <button type="submit" className="btn btn-primary mt-2" onClick={() => SendUpdate()}>
-        Update
+        Atualizar
       </button>
     </div>
   );

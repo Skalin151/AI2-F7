@@ -10,13 +10,13 @@ var Genre = SequelizeDB.define('genre', {
         allowNull:false
     },
     description: Sequelize.STRING,
-    unique: true
+    
 },
 {
     timestamps: false,
 });
 
-
+/*
 const genre1 = new Genre({
     description: 'Fantasia'
   });
@@ -40,7 +40,7 @@ const genre1 = new Genre({
       console.log(`Género criado com sucesso: ${genre.description}`);
     }
   });
-
+*/
 
 Genre.sync();
 

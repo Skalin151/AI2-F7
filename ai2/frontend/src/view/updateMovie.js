@@ -86,21 +86,21 @@ export default function UpdateMovie() {
     <div>
       <div className="form-row justify-content-center">
         <div className="form-group col-md-6">
-          <label htmlFor="inputPassword4">Title</label>
+          <label htmlFor="inputPassword4">Título</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Title"
+            placeholder=""
             value={Title}
             onChange={(value) => setTitle(value.target.value)}
           />
         </div>
         <div className="form-group col-md-6">
-          <label htmlFor="inputPassword4">Insert a Photo:</label>
+          <label htmlFor="inputPassword4">Insira Foto:</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Path foto"
+            placeholder=""
             value={Photo}
             onChange={(value) => setPhoto(value.target.value)}
           />
@@ -108,14 +108,14 @@ export default function UpdateMovie() {
       </div>
       <div className="form-row">
         <div className="form-group col-md-6">
-          <label htmlFor="inputState">Genre</label>
+          <label htmlFor="inputState">Género:</label>
           <select
             id="inputState"
             className="form-control"
             value={Genre}
             onChange={(value) => setGenre(value.target.value)}
           >
-            <option default>Genre</option>
+            <option default></option>
             {LoadFillData()}
           </select>
         </div>
@@ -124,7 +124,7 @@ export default function UpdateMovie() {
           <input
             type="text"
             className="form-control"
-            placeholder="Description"
+            placeholder=""
             value={Description}
             onChange={(value) => setDescription(value.target.value)}
           />
@@ -135,7 +135,7 @@ export default function UpdateMovie() {
         className="btn btn-primary mt-2"
         onClick={() => SendUpdate()}
       >
-        Update
+        Atualizar
       </button>
     </div>
   );

@@ -3,31 +3,44 @@ var sequelize = require('../models/database');
 const controllers = {}
 sequelize.sync()
 
-controllers.genre_create = async(req, res) => {
-    const { description } = req.body;
-    const data = await Genre.create({
-        description: description
-    })
-    .then(function(data) {
-        return data
-    })
-    .catch(error => {
-        return error;
-    })
 
-    res.status(200).json({
-        success: true,
-        message: "Genre added!",
-        data: data
+
+controllers.genre_create_unique = async(req, res) => {
+    const { description } = req.body;
+    const existingGenre = await Genre.findOne({
+        where: { description: description }
     });
+
+    if (existingGenre) {
+        res.status(400).json({
+            success: false,
+            message: "Este género já existe!"
+        });
+    } else {
+        const data = await Genre.create({
+            description: description
+        })
+       .then(function(data) {
+            return data
+        })
+       .catch(error => {
+            return error;
+        })
+
+        res.status(200).json({
+            success: true,
+            message: "Género adicionado!",
+            data: data
+        });
+    }
 }
 
 controllers.genre_list = async(req, res) => {
     const data = await Genre.findAll()
-    .then(function(data) {
+   .then(function(data) {
         return data;
     })
-    .catch(error => {
+   .catch(error => {
         return error;
     });
     res.json({success: true, data: data});
@@ -45,7 +58,7 @@ controllers.genre_update = async(req, res) => {
     .catch(error => {
         return error;
     })
-    res.json({ success: true, data: data, message: "Genre updated!"}); //Debug
+    res.json({ success: true, data: data, message: "Género atualizado!"});
 }
 
 controllers.genre_delete = async(req, res) => {
@@ -61,23 +74,22 @@ controllers.genre_delete = async(req, res) => {
         return error;
     })
 
-    res.json({success: act, message: "Genre removed!"}) //Debug
+    res.json({success: act, message: "Género removido!"})
 }
+
 
 controllers.genre_get = async(req, res) => {
     const { id } = req.params;
     const data = await Genre.findAll({
         where: { id: id }
     })
-    .then(function(data) {
+   .then(function(data) {
         return data;
     })
-    .catch(error => {
+   .catch(error => {
         return error;
     })
     res.json({ success: true, data: data});
 }
-
-
 
 module.exports = controllers;

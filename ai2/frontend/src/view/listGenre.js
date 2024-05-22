@@ -67,19 +67,19 @@ export default function ListGenre(){
 
     function onDelete(genre){
         Swal.fire({
-            title: 'Tem a certeza?',
-            text: 'Esta ação é irreversível!',
+            title: 'Are you sure?',
+            text: 'It won\'t be able to recover it later!',
             type: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Sim, apagar!',
-            cancelButtonText: 'Não, manter'
+            confirmButtonText: 'Yes, delete!',
+            cancelButtonText: 'No, keep'
         }).then((result) => {
             if (result.value) {
                 sendDelete(genre)
             } else if (result.dismiss === Swal.DismissReason.cancel) {
                 Swal.fire(
-                'Operação cancelada',
-                'Género não foi apagado',
+                'Canceled',
+                'Genre was not deleted',
                 'error'
                 )
             }
@@ -101,7 +101,7 @@ export default function ListGenre(){
             else{
                 Swal.fire(
                     'Cancelado',
-                    'Género associado a um filme!',
+                    'Género assiciado a filme!',
                     'error'
                 )
             }

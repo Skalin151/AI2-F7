@@ -33,36 +33,36 @@ export default function CreateMovie(){
         <div>
             <div className="form-row justify-content-center">
                 <div className="form-group col-md-6">
-                    <label htmlFor="inputPassword4">Title</label>
-                    <input type="text" className="form-control" placeholder="Titulo"
+                    <label htmlFor="inputPassword4">Título</label>
+                    <input type="text" className="form-control" placeholder=""
                     value={Title} onChange={(value)=>
                         setTitle(value.target.value)}/>
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="inputPassword4">Insert a Photo:</label>
-                    <input type="text" className="form-control" placeholder="Path foto"
+                    <label htmlFor="inputPassword4">Insira Foto:</label>
+                    <input type="text" className="form-control" placeholder=""
                     value={Photo} onChange={(value)=>
                         setPhoto(value.target.value)}/>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-md-6">
-                    <label htmlFor="inputState">Genre</label>
+                    <label htmlFor="inputState">Género</label>
                     <select id="inputState"
                     className="form-control" value = {Genre}
                     onChange={(value) => setGenre(value.target.value)}>
-                        <option defaultValue>Select..</option>
+                        <option defaultValue></option>
                         <LoadGenre/>
                     </select>
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="inputPassword4">Description:</label>
-                    <input type="text" className="form-control" placeholder="Description"
+                    <label htmlFor="inputPassword4">Descrição:</label>
+                    <input type="text" className="form-control" placeholder=""
                     onChange={value =>
                         setDescription(value.target.value)}/>
                 </div>
             </div>
-            <button type="submit" className="btn btn-primary mt-2" onClick={()=>SendSave()}>Add Movie</button>
+            <button type="submit" className="btn btn-primary mt-2" onClick={()=>SendSave()}>Adicionar</button>
         </div>
     )
 
@@ -76,16 +76,16 @@ export default function CreateMovie(){
 
     function SendSave(){ 
         if (Genre === "") {
-            alert("Select Genre!")
+            alert("Selecione um género!")
         }
         else if (Title === "") {
-            alert("Choose a title!")
+            alert("Coloque um título!")
         }
         else if (Photo === "") {
-            alert("Insert a Photo!")
+            alert("Insira o Link de uma Foto!")
         }
         else if (Genre === "") {
-            alert("Write a description")
+            alert("Insira uma descrição")
         }
         else {
             const url = baseUrl + "/movie/create"

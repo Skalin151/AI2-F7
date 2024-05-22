@@ -14,6 +14,6 @@ const sequelize = new Sequelize(
 sequelize.sync();
 
 //Debug
-console.log('Conected to Data Bank');
+console.log('Conectado à base de dados');
 
 module.exports = sequelize;

@@ -13,7 +13,7 @@ export default function CreateGenre(){
         <div>
             <div className='form-row justify-content-center'>
                 <div className='form-group col-md-6'>
-                    <label htmlFor="inputPassword4">Description:</label>
+                    <label htmlFor="inputPassword4">Descrição:</label>
                     <input type="text"
                     className="form-control"
                     placeholder=""
@@ -27,7 +27,7 @@ export default function CreateGenre(){
 
     function SendSave(){
         if (Description === "") {
-            alert("Add a description!")
+            alert("Adicione uma descrição!")
         }
         else {
             const url = baseUrl + "/genre/create"
