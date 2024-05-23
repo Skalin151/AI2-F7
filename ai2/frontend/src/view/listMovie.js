@@ -94,7 +94,7 @@ export default function ListMovie(){
 
     function sendDelete(movie){
     const url = baseUrl + "/movie/delete/" + movie
-    axios.get(url)
+    axios.post(url)
     .then(response =>{
             if (response.data.success) {
                 Swal.fire(

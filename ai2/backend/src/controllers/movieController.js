@@ -5,7 +5,7 @@ const controllers = {}
 sequelize.sync()
 
 
-
+// Thumbs Up
 controllers.movie_create_unique = async(req, res) => {
     const { title } = req.body;
     const existingMovie = await Movie.findOne({
@@ -51,25 +51,26 @@ controllers.movie_list = async(req, res) => {
     res.json({ success: true, data: data});
 }
 
-controllers.movie_update = async(req, res) => {
+
+//Não funciona, no idea why
+controllers.movie_update = async (req, res) => {
     const { id } = req.params;
-    const { title, photo, description, genre } = req.body;
-    const data = await Movie.update({
-            title: title,
-            photo: photo,
-            description: description,
-            genreId: genre
-        }, {where:  { id: id}})
-    .then(function(data) {
-        return data;
-    })
-    .catch(error => {
-        return error;
-    });
+    const { title, photo, description, genreID } = req.body;
+    try {
+      const data = await Movie.update({
+        title: title,
+        photo: photo,
+        description: description,
+        genreID: genreID
+      }, { where: { id: id } });
+      
+      res.json({ success: true, data: data, message: "Filme atualizado!" });
+    } catch (error) {
+      res.status(500).json({ success: false, message: "Erro a atualizar filme", error: error.message });
+    }
+  };
 
-    res.json({success: true, data: data, message: "Filme atualizado!"});
-}
-
+  // Thumbs up
 controllers.movie_delete = async(req, res) => {
     const { id } = req.params;
     var act = false;
@@ -83,7 +84,7 @@ controllers.movie_delete = async(req, res) => {
         return error
     })
     
-    res.json({success: act, message: "Filme apagado!"});
+    res.json({success: act, message: "Filme apagado!"}); //Debug
 }
 
 controllers.movie_get = async(req, res) => {

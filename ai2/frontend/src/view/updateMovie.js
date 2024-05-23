@@ -16,71 +16,78 @@ export default function UpdateMovie() {
   const { movieId } = useParams();
 
   useEffect(() => {
+
     const url = baseUrl + "/movie/get/" + movieId;
     axios.get(url)
-   .then(res => {
-        if (res.data.success) {
-          const data = res.data.data[0];
-          if (data) {
+    .then(res => {
+        if(res.data.success){
+            const data = res.data.data[0];
             setMovie(data);
             setTitle(data.title);
             setPhoto(data.photo);
             setDescription(data.description);
             setGenre(data.genre.description);
-          } else {
-            alert("Error web service");
-          }
         }
-      })
-   .catch(error => {
-        alert("Error server: " + error);
-      });
+        else{
+            alert("Error web service")
+        }
+    })
+    .catch(error => {
+        alert("Error server: " +  error)
+    })
 
     const urlgenre = baseUrl + "/genre/list";
     axios.get(urlgenre)
-   .then(res => {
-        if (res.data.success) {
-          const data = res.data.data;
-          setdataGenre(data);
-        } else {
-          alert("Erro Web Service");
+    .then(res => {
+        console.log(res);
+        if (res.data.success){
+            const data = res.data.data;
+            setdataGenre(data);
         }
-      })
-   .catch(error => {
-        alert(error);
-      });
-  }, []);
+        else {
+            console.error("Erro na resposta do Web Service:", res.data.message); // Mensagem de erro mais detalhada
+            alert("Erro Web Service: " + res.data.message); // Mensagem de erro mais detalhada
 
-  function SendUpdate() {
-    const url = baseUrl + "/movie/update/" + movieId;
-    const datapost = {
-      title: Title,
-      photo: Photo,
-      genreId: Genre,
-      description: Description,
-    };
-    axios.put(url, datapost)
-    .then((response) => {
-        if (response.data.success === true) {
-          alert(response.data.message);
-        } else {
-          alert("Error");
         }
-      })
-    .catch((error) => {
-        alert("Error 34: " + error);
-      });
-  }
-
-  function LoadFillData() {
-    return dataGenre.map((data, index) => {
-      return (
-        <option key={index} value={data.id}>
-          {data.description}
-        </option>
-      );
+    })
+    .catch(error => {
+        console.error("Erro ao fazer a requisição:", error); // Log do erro
+        alert("Erro ao fazer a requisição: " + error); // Mensagem de erro mais detalhada
     });
+
+
+}, []);
+
+function SendUpdate(){
+  const url = baseUrl + "/movie/update/" + movieId
+  const datapost = {
+      title : Title,
+      photo : Photo,
+      genreID : Genre,
+      description : Description
   }
+  axios.put(url, datapost)
+  .then(response=>{
+      if (response.data.success === true) {
+          alert(response.data.message)
+      }
+      else {
+          alert("Error")
+      }
+  })
+  .catch(error=>{
+      alert("Error 34: " + error)
+  })
+}
+
+
+function LoadFillData(){
+  return dataGenre.map((data, index) => {
+      return(
+      <option key={index} value={data.id}>{data.description}</option>
+  )
+  });
+}
 
   return (
     <div>

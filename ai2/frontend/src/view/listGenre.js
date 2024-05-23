@@ -39,7 +39,7 @@ export default function ListGenre(){
             <thead className = "thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Genre</th>
+                    <th scope="col">Género</th>
                 </tr>
             </thead>
             <tbody>
@@ -88,7 +88,7 @@ export default function ListGenre(){
 
     function sendDelete(genre){
         const url = baseUrl + "/genre/delete/" + genre
-        axios.get(url)
+        axios.post(url)
         .then(response =>{
             if (response.data.success){
                 Swal.fire(

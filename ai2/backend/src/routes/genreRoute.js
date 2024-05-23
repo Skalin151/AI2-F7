@@ -7,6 +7,6 @@ router.post('/create', genreController.genre_create_unique);
 router.get('/list', genreController.genre_list);
 router.put('/update/:id', genreController.genre_update);
 router.get('/get/:id', genreController.genre_get);
-router.get('/delete/:id', genreController.genre_delete);
+router.post('/delete/:id', genreController.genre_delete);
 
 module.exports = router;
