@@ -51,7 +51,7 @@ controllers.genre_update = async (req, res) => {
 	try {
 		const { id } = req.params;
 		const body = req.body;
-		const data = await Genero.update(
+		const data = await genre.update(
 			{ ...body },
 			{
 				where: { id: id }

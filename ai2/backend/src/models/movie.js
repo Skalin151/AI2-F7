@@ -37,14 +37,14 @@ var Movie = SequelizeDB.define('movie', {
 // Criar alguns exemplos de filmes
 const movie1 = new Movie({
     title: 'Kung Fu Panda',
-    photo: 'exemplo.png',
+    photo: 'https://upload.wikimedia.org/wikipedia/en/9/99/Kung_Fu_Panda_Game_Cover.jpg',
     description: 'Panda que faz Kung Fu',
     genreId: 1
   });
   
   const movie2 = new Movie({
     title: 'Your Lie in April',
-    photo: 'Kimidayokiminanda yo.png',
+    photo: 'https://m.media-amazon.com/images/M/MV5BYThlNWY5ZDgtYTIxNC00ZjdiLWJmNGUtMDFjMDlmZTAzOWFiXkEyXkFqcGdeQXVyNTM4NzAzNjc@._V1_.jpg',
     description: 'Mentiras em abril',
     genreId: 2
   });
